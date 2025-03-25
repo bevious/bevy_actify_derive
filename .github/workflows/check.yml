@@ -1,4 +1,4 @@
-name: Build & Test
+name: Check
 
 on:
   push:
@@ -6,15 +6,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
-env:
-  CARGO_TERM_COLOR: always
-
 jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v4
-    - name: Build
-      run: cargo build --verbose
     - name: Test
       run: cargo test --verbose
